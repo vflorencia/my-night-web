@@ -15,6 +15,8 @@ import Transbank from './Componentes/Transbank/Transbank';
 import Contacto from './Componentes/Contacto/Contacto';
 import RedirectPage from './Componentes/RedirectPage/RedirectPage';
 import Success from './Componentes/Transbank/Status/Success';
+import SuccessMob from './Componentes/Transbank/Mobile/Success.jsx';
+import Failed from './Componentes/Transbank/Status/Failed.jsx';
 import Commit from './Componentes/Transbank/Commit';
 import Perfil from './Componentes/Perfil/Perfil'
 import CommitMobile from './Componentes/Transbank/Mobile/CommitMobile.jsx';
@@ -37,6 +39,8 @@ function App() {
           <Route  path="/contacto" element={<><Navbar/><Contacto/><Footer/></>} />
           <Route  path="/redirect" element={<RedirectPage/>} />
           <Route  path="/success" element={<Success/>} />
+          <Route  path="/failed" element={<Failed/>} />
+          <Route  path="/success-mobile" element={<SuccessMob/>} />
           <Route  path="/commit" element={<Commit/>} />
           <Route  path="/commit-mobile" element={<CommitMobile/>} />
           <Route  path="/perfil" element={<><Navbar/><Perfil/><Footer/></>} />
