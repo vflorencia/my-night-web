@@ -1,0 +1,127 @@
+
+.eventos-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem;
+  width: 90%;
+  height: auto;
+  gap: 2rem;
+  }
+  
+.eventos-section h1 {
+  margin-bottom: 15px;
+}
+
+.eventos-section h2 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+
+.eventos-list2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.evento-card2 {
+  width: calc(25% - 30px); /* Asegura que haya 4 cards por fila */
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  padding: 10px;
+  background-color: #333;
+}
+
+.evento-card2:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.evento-card2 img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.evento-card-content {
+  padding: 15px;
+  background: #333;
+}
+
+.evento-card2 h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  background: #333;
+
+}
+
+.evento-card2 p {
+  font-size: 14px;
+  margin-bottom: 10px;
+  background: #333;
+
+
+}
+
+.evento-card-price {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.noevents{
+  flex: 0 0 auto;
+  width: 300px;
+  border-radius: 8px;
+  padding: 15px;
+  background-color: #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.noevents p {
+  background: #333;
+}
+
+/* Estilos para el buscador y el filtro de orden */
+
+.eventos-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  width: 300px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #ccc;
+
+}
+
+.sort-select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #ccc;
+}
+
+
+
+
+
+
+  

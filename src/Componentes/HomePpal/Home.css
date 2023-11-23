@@ -1,0 +1,177 @@
+/* Inicio.css */
+
+.inicio {
+    padding: 20px;
+    margin: 3rem;
+    width: 90%;
+    height: auto;
+  }
+  
+  .intro {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 40px;
+ 
+  }
+  
+  
+  .intro h1 {
+    font-size: 45px;
+    margin-bottom: 10px;
+  }
+  
+  .intro p {
+    font-size: 25px;
+  }
+  
+  .intro-image img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .proximos-eventos {
+    margin-bottom: 40px;
+  }
+  
+  .proximos-eventos h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+  }
+
+  .eventos-list {
+    display: flex;
+    overflow-x: scroll; /* Agrega un scroll horizontal */
+    gap: 20px; /* Espacio entre las tarjetas */
+    padding: 10px; /* Añade un poco de espacio interno */
+    scrollbar-width: thin; /* Añade scrollbars personalizados en navegadores que lo soportan */
+    scrollbar-color: #ccc #f9f9f9; /* Colores para las barras y los thumb */
+  }
+  
+  .evento-card {
+    flex: 0 0 auto;
+    width: 300px;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #333;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .evento-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .evento-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    background-color: #333;
+  }
+  
+  .evento-card p {
+    font-size: 14px;
+    margin-bottom: 10px;
+    background-color: #333;
+  
+  }
+  
+  /* Personaliza la apariencia de las scrollbar */
+  .eventos-list::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .eventos-list::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+  }
+  
+  .eventos-list::-webkit-scrollbar-thumb:hover {
+    background-color: #aaa;
+  }
+  
+  .eventos-list::-webkit-scrollbar-track {
+    background-color: #f9f9f9;
+  }
+
+  
+  .porque-elegirnos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+  
+  .porque-image img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .porque-text {
+    flex: 1;
+    width: 50%;
+  }
+  
+  .porque-text h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .porque-text p {
+    font-size: 18px;
+  }
+  
+  .llamado-accion {
+    text-align: center;
+    margin: 10rem 10rem;
+  }
+  
+  .llamado-accion h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .llamado-accion p {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .organizando-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex: 1;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1; 
+    background: var(--background);
+
+  }
+  
+  .organizando-content h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    background: var(--background);
+    color: #555;
+
+
+  }
+  
+  .organizando-content p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 20px;
+    background: var(--background);
+
+  }
+  .organizando-content a{
+    background: var(--background);
+
+  }
+  
+  

@@ -1,0 +1,12 @@
+import React from 'react';
+import "./Status.css";
+
+export default function Failed() {
+  return (
+    <div>
+        <h1>Compra Fallida</h1>
+        <h2>Lo sentimos, no se pudo procesar su compra.</h2>
+        <h2>Para más información revise los datos que enviamos a su correo.</h2>
+    </div>
+  )
+}

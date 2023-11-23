@@ -1,0 +1,132 @@
+.unete-section {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+  }
+  
+  .unete-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    gap: 3rem;
+
+  }
+  
+  .unete-content h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+  
+  .unete-content p {
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    width: 70%;
+
+  }
+
+  .unete-service{
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .unete-benefits{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5rem;
+  }
+  
+  .unete-service h2,
+  .unete-benefits h2 {
+    font-size: 25px;
+    margin-bottom: 10px;
+  }
+  
+  .unete-service ul {
+    padding-left: 20px;
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: var(--words);
+  }
+
+  .unete-benefits ul {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .unete-benefits ul li{
+    width: 250px;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #333;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .unete-benefits ul img,
+  .unete-benefits ul p,
+  .unete-benefits ul b{
+    background: #333;
+    font-size: 16px;
+  }
+
+
+  .unete-contact{
+    display: flex;
+    width: 70%;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+  }
+  
+  .contact-form {
+    width: 80%;
+    background-color: #8d8d8d;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .contact-form h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    background-color: #8d8d8d;
+    color: #333;
+  }
+  
+  .contact-form form {
+    background-color: #8d8d8d;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .contact-form label {
+    background-color: #8d8d8d;
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #b9b9b9;
+  }
+  
+  

@@ -1,0 +1,52 @@
+.blog-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    height: 100vh;
+  }
+  
+  .blog-section h1 {
+    margin-bottom: 15px;
+  }
+  
+  .blog-section h2 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .blog-entry {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .blog-entry h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+  .blog-entry p {
+    margin-bottom: 10px;
+  }
+  
+  /* Estilos para el contenido de Mantente Informado */
+  .mantente-informado {
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .mantente-informado h2 {
+    margin-top: 0;
+  }
+  
+  .mantente-informado p {
+    margin-bottom: 15px;
+  }
+  

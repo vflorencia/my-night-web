@@ -1,0 +1,107 @@
+.evento-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.detalles-evento {
+  display: flex;
+  padding: 20px;
+  height: auto;
+  width: 90%;
+  margin: 3rem;
+  gap: 2rem;
+
+}
+
+
+.evento-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  position: fixed;
+  width: 42%;
+  background: none;
+
+}
+
+.evento-imagen {
+ max-width: 100%;
+ height: auto;
+  margin-left: -2rem;
+  margin-top: 5rem;
+  z-index: 2;
+  background: none;
+
+}
+
+.evento-imagen img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  z-index: 2;
+
+}
+
+.evento-descripcion {
+  flex: 1;
+  z-index: 1;
+  background: none;
+}
+
+.evento-descripcion h2, p {
+  background: none;
+
+}
+
+.evento-detalles {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 35rem; /* Ajusta el margen según sea necesario */
+  margin-top: 6rem;
+  background: none;
+
+
+}
+
+.evento-detalles h1 {
+  margin-bottom: 10px;
+  font-size: 40px;
+  background: none;
+
+}
+
+.evento-detalles p {
+  margin: 5px 0;
+  font-size: 22px;
+  background: none;
+
+}
+
+.precio {
+  display: flex;
+  justify-content: space-around;
+  gap: 2rem;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 20px;
+  background: #242424;
+  margin-top: 5rem;
+  z-index: 2;
+}
+
+.blob {
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  z-index: 0;
+  filter: blur(150px);
+  margin-left: 60rem;
+}
