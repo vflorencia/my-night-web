@@ -18,7 +18,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         domain='dev-gycxcebwgjyhaube.us.auth0.com'
         clientId='st5fCIJimR7rcGToqhLCOWEBumVGhDFQ'
         authorizationParams={{
-          redirect_uri: 'http://localhost:5173/redirect'
+          redirect_uri: 'https://mynight.club/redirect'
         }}
       >
        <App />
