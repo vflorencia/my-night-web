@@ -15,8 +15,10 @@ const initialState = {
   total: 0,
   countProducts: 0,
   redirect: false,
+  tickets: [],
+  ticket_by_id: {}
 };
-import { BUY_PRODUCT, COMMIT, STATUS, REFUND} from "./actions.js";
+import { BUY_PRODUCT, COMMIT, STATUS, REFUND, SET_TICKETS, SET_TICKETS_BY_ID} from "./actions.js";
  
   
 function rootReducer(state = initialState, action) {
@@ -62,6 +64,16 @@ function rootReducer(state = initialState, action) {
       console.log("desde el reducer status", action.payload);
       return state;
     }
+    case SET_TICKETS: 
+      return {
+        ...state,
+        tickets: action.payload,
+      };
+    case SET_TICKETS_BY_ID: 
+      return {
+        ...state,
+        ticket_by_id: action.payload,
+      };
     default:
       return state;
   }

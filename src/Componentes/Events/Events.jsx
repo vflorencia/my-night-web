@@ -1,13 +1,18 @@
-import React, { useState } from 'react';
-import './Eventos.css';
+import React, { useEffect, useState } from 'react';
+import './Events.css';
 import { Link } from 'react-router-dom';
 import { events } from "./events"
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllTickets } from '../../redux/actions';
 
 
-export default function Eventos() {
+export default function Events() {
 
   const [searchTerm, setSearchTerm] = useState('');
   const [sortBy, setSortBy] = useState('');
+  const dispatch = useDispatch()
+  const evento = useSelector((state) => state.tickets)
+  console.log("evento", evento);
 
   const filteredEvents = events.filter(event =>
     event.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -23,6 +28,12 @@ export default function Eventos() {
   };
 
   filteredEvents.sort(sortEvents);
+  console.log(filteredEvents)
+
+  useEffect(() => {
+   dispatch(getAllTickets())
+  }, [])
+  
   
   return (
     <div className="eventos-section">

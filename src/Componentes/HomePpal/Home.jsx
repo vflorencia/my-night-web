@@ -1,8 +1,8 @@
 import React from 'react';
 import './Home.css';
-import '../Eventos/Eventos.css';
+import '../Events/Events.css';
 import { Link } from 'react-router-dom';
-import { events } from "../Eventos/events"
+import { events } from "../Events/events"
 import logo from '../../assets/LogoGoup.png'
 import logo1 from '../../assets/logo1.png'
 import logo2 from '../../assets/logo2.png'

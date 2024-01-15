@@ -10,14 +10,18 @@
   --black : #000000;
   --grey : #666666;
   --blueCard : #DDF8FE;
+  --skyblue: #c5f5f2;
   --purple1: #6D42C5;
   --purple2: #8C4AFF;
+  --purple3: #747bff;
   --pink1:#DD74F3;
   --pink2:#EE9CDA;
   --pink3:#FCD4F4;
-  --background: #FFF7F5;
+  --background: #242424;
   --brownLight: #F9E3DD;
   --words: #e6e3e3;
+  --button:#333 ;
+  --backgroundForm: #8d8d8d;
   --boxShadow : 0px 19px 60px rgb(0 0 0 / 8%);
   --smboxShadow: -79px 51px 60px rgba(0, 0, 0, 0.08);
 } 
@@ -74,8 +78,8 @@ button {
   font-family: inherit;
   width: max-content;
   box-shadow: rgba(0, 0, 0, 0.4) 1px 1px 1px;
-  background-color: #333;
-  color: #fff;
+  background-color: var(--button);
+  color: var(--words);
   border: none;
   padding: 10px 15px;
   border-radius: 4px;
@@ -94,7 +98,7 @@ button:hover {
     background-color: white;
   }
   a:hover {
-    color: #747bff;
+    color: var(--purple3);
   }
 
 } 

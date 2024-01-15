@@ -4,6 +4,8 @@ export const BUY_PRODUCT = "BUY_PRODUCT";
 export const COMMIT = "COMMIT";
 export const STATUS = "STATUS";
 export const REFUND = "REFUND";
+export const SET_TICKETS = "SET_TICKETS";
+export const SET_TICKETS_BY_ID = "SET_TICKETS_BY_ID";
 
 
 export function registroUsuario(payload) {
@@ -51,6 +53,77 @@ export function loginUsuario(payload) {
   };
 }
 
+// tickets
+
+// Acción para crear un ticket
+export const createTicket = (ticketData) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.post('/tickets/create', ticketData);
+      console.log(response.data); // Maneja la respuesta si es necesario
+      // Puedes despachar otras acciones de Redux si es necesario
+    } catch (error) {
+      console.error('Error creating ticket:', error); // Maneja el error
+    }
+  };
+};
+
+// Acción para obtener todos los tickets
+export const getAllTickets = () => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.get('/tickets');
+      return dispatch({
+        type: SET_TICKETS,
+        payload: response.data,
+      });
+    } catch (error) {
+      console.error('Error getting all tickets:', error); // Maneja el error
+    }
+  };
+};
+
+// Acción para obtener un ticket por ID
+export const getTicketById = (ticketId) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.get(`/tickets/${ticketId}`);
+      return dispatch({
+        type: SET_TICKETS_BY_ID,
+        payload: response.data,
+      });
+    } catch (error) {
+      console.error(`Error getting ticket ${ticketId}:`, error); // Maneja el error
+    }
+  };
+};
+
+// Acción para actualizar un ticket por ID
+export const updateTicket = (ticketId, ticketData) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.put(`/tickets/${ticketId}`, ticketData);
+      console.log(response.data);
+    } catch (error) {
+      console.error(`Error updating ticket ${ticketId}:`, error); // Maneja el error
+    }
+  };
+};
+
+// Acción para eliminar un ticket por ID
+export const deleteTicket = (ticketId) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.delete(`/tickets/${ticketId}`);
+      console.log(response.data); 
+    } catch (error) {
+      console.error(`Error deleting ticket ${ticketId}:`, error); // Maneja el error
+    }
+  };
+};
+
+
+
 // Transbank
 
 const remot = "http://localhost:3000/transbank/";
@@ -93,6 +166,7 @@ export function status(payload) {
     });
   };
 }
+
 
     
   
