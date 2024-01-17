@@ -1,4 +1,5 @@
 import axios from "axios";
+import Swal from "sweetalert2";
 
 export const BUY_PRODUCT = "BUY_PRODUCT";
 export const COMMIT = "COMMIT";
@@ -6,6 +7,10 @@ export const STATUS = "STATUS";
 export const REFUND = "REFUND";
 export const SET_TICKETS = "SET_TICKETS";
 export const SET_TICKETS_BY_ID = "SET_TICKETS_BY_ID";
+export const SET_BARTENDERS = "SET_BARTENDERS";
+export const SET_BARTENDER_BY_ID = "SET_BARTENDER_BY_ID";
+export const SET_PRODUCTS = "SET_PRODUCTS";
+
 
 
 export function registroUsuario(payload) {
@@ -53,9 +58,7 @@ export function loginUsuario(payload) {
   };
 }
 
-// tickets
-
-// Acción para crear un ticket
+// ticketsBartendercción para crear un ticket
 export const createTicket = (ticketData) => {
   return async (dispatch) => {
     try {
@@ -166,6 +169,190 @@ export function status(payload) {
     });
   };
 }
+
+// Bartenders
+// Acción para crear un bartender
+export const createBartender = (bartenderData) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.post('/bartender', bartenderData);
+      console.log(response.data); 
+      Swal.fire({
+        title: "Bartender Creado!",
+        icon: 'succes',
+        confirmButtonText: 'OK',
+        background: '#242424',
+        color: 'white',
+        backdrop: 'rgba(0,0,000,0.4)',
+      });
+
+    } catch (error) {
+      console.error('Error creating bartender:', error); 
+      Swal.fire({
+        title: error.response.data.message,
+        icon: 'error',
+        confirmButtonText: 'OK',
+        background: '#242424',
+        color: 'white',
+        backdrop: 'rgba(0,0,000,0.4)',
+      });
+    }
+  };
+};
+
+// Acción para obtener todos los bartenders
+export const getAllBartenders = () => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.get('/bartender');
+      return dispatch({
+        type: SET_BARTENDERS,
+        payload: response.data,
+      });
+    } catch (error) {
+      console.error('Error getting all bartenders:', error); 
+    }
+  };
+};
+
+// Acción para obtener un bartender por ID
+export const getBartenderById = (bartenderId) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.get(`/bartender/${bartenderId}`);
+      return dispatch({
+        type: SET_BARTENDER_BY_ID,
+        payload: response.data,
+      });
+    } catch (error) {
+      console.error(`Error getting bartender ${bartenderId}:`, error); 
+    }
+  };
+};
+
+// Acción para actualizar un bartender por ID
+export const updateBartender = (bartenderId, bartenderData) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.put(`/bartender/${bartenderId}`, bartenderData);
+      console.log(response.data);
+    } catch (error) {
+      console.error(`Error updating bartender ${bartenderId}:`, error); 
+    }
+  };
+};
+
+// Acción para eliminar un bartender por ID
+export const deleteBartender = (bartenderId) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.delete(`/bartender/${bartenderId}`);
+      console.log(response.data); 
+      Swal.fire({
+        title: "Bartender Eliminado!",
+        icon: 'succes',
+        confirmButtonText: 'OK',
+        background: '#242424',
+        color: 'white',
+        backdrop: 'rgba(0,0,000,0.4)',
+      });
+    } catch (error) {
+      console.error(`Error deleting bartender ${bartenderId}:`, error); 
+      Swal.fire({
+        title: "Ocurrió un Error",
+        icon: 'error',
+        confirmButtonText: 'OK',
+        background: '#242424',
+        color: 'white',
+        backdrop: 'rgba(0,0,000,0.4)',
+      });
+    }
+  };
+};
+
+
+// PRODUCTS
+
+export const createProducts = (productData) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.post('/products/create', productData);
+      console.log(response.data); 
+      Swal.fire({
+        title: "Producto Creado!",
+        icon: 'succes',
+        confirmButtonText: 'OK',
+        background: '#242424',
+        color: 'white',
+        backdrop: 'rgba(0,0,000,0.4)',
+      });
+
+    } catch (error) {
+      console.error('Error creating product:', error); 
+      Swal.fire({
+        title: error.response.data.message,
+        icon: 'error',
+        confirmButtonText: 'OK',
+        background: '#242424',
+        color: 'white',
+        backdrop: 'rgba(0,0,000,0.4)',
+      });
+    }
+  };
+};
+
+export const getAllProducts = () => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.get('/products');
+      console.log(response.data);
+      return dispatch({
+        type: SET_PRODUCTS,
+        payload: response.data,
+      });
+    } catch (error) {
+      console.error('Error getting all products:', error); 
+    }
+  };
+};
+
+export const updateProduct = (productId, productData) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.put(`/products/${productId}`, productData);
+      console.log(response.data);
+    } catch (error) {
+      console.error(`Error updating product ${productId}:`, error); 
+    }
+  };
+};
+
+export const deleteProducts = (productId) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.delete(`/products/${productId}`);
+      console.log(response.data); 
+      Swal.fire({
+        title: "Producto Eliminado!",
+        icon: 'succes',
+        confirmButtonText: 'OK',
+        background: '#242424',
+        color: 'white',
+        backdrop: 'rgba(0,0,000,0.4)',
+      });
+    } catch (error) {
+      console.error(`Error deleting product ${bartenderId}:`, error); 
+      Swal.fire({
+        title: "Ocurrió un Error",
+        icon: 'error',
+        confirmButtonText: 'OK',
+        background: '#242424',
+        color: 'white',
+        backdrop: 'rgba(0,0,000,0.4)',
+      });
+    }
+  };
+};
 
 
     

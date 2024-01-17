@@ -84,5 +84,42 @@
     font-size: 28px;
     font-weight: bold;
 }
-  
-  
+
+
+/* dashboard => bartenders */
+.table {
+    background-color: var(--backgroundForm);
+    font-size: 0.8em;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+}
+.btn-create-dash{
+    margin-left: 60%;
+    width: 150px;
+}
+.searchYbtn{
+    display: flex;
+    flex-direction: row;
+}
+.searchBarDashboard{
+    width: 252px;
+    margin-left: 60%;
+}
+.table-img{
+    display: flex;
+    overflow: auto;
+    width: 200px;
+} 
+.table thead tr {
+    color: var(--backgroundForm);
+    text-align: left;
+    font-weight: bold;
+    font-size: 15px;
+}
+.table th,
+.table td {
+    padding: 8px 5px;
+    text-align: center;
+    align-items: center;
+    color: var(--words);
+}

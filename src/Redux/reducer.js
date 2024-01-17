@@ -16,9 +16,11 @@ const initialState = {
   countProducts: 0,
   redirect: false,
   tickets: [],
-  ticket_by_id: {}
+  ticket_by_id: {},
+  bartenders: [],
+  bartender_by_id: {},
 };
-import { BUY_PRODUCT, COMMIT, STATUS, REFUND, SET_TICKETS, SET_TICKETS_BY_ID} from "./actions.js";
+import { BUY_PRODUCT, COMMIT, STATUS, REFUND, SET_TICKETS, SET_TICKETS_BY_ID, SET_BARTENDERS, SET_BARTENDER_BY_ID, SET_PRODUCTS} from "./actions.js";
  
   
 function rootReducer(state = initialState, action) {
@@ -73,10 +75,26 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         ticket_by_id: action.payload,
+      }
+    case SET_BARTENDERS: 
+      return {
+        ...state,
+        bartenders: action.payload,
       };
+    case SET_BARTENDER_BY_ID: 
+      return {
+        ...state,
+      bartender_by_id: action.payload,
+      };
+    case SET_PRODUCTS: 
+    return {
+      ...state,
+      products: action.payload,
+    };
     default:
       return state;
-  }
+    }
+  
 }
 
 export default rootReducer;

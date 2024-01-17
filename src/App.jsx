@@ -27,6 +27,10 @@ import Bartenders from './Componentes/Darshboard/Bartenders/Bartenders.jsx'
 import Products from './Componentes/Darshboard/Products/Products.jsx'
 import ProductsSales from './Componentes/Darshboard/Sales/ProductsSales.jsx'
 import TicketsSales from './Componentes/Darshboard/Sales/TicketsSales.jsx'
+import BartenderCreate from './Componentes/Darshboard/Bartenders/BartenderCreate.jsx';
+import BartenderEdit from './Componentes/Darshboard/Bartenders/BartenderEdit.jsx';
+import ProductEdit from './Componentes/Darshboard/Products/ProductEdit.jsx';
+import ProductCreate from './Componentes/Darshboard/Products/ProductCreate.jsx';
 
 
 function App() {
@@ -60,6 +64,10 @@ function App() {
           <Route path="/dashboard/products" element={<><SideBar/><Products /></>} />
           <Route path="/dashboard/product-sales" element={<><SideBar/><ProductsSales /></>} />
           <Route path="/dashboard/ticket-sales" element={<><SideBar/><TicketsSales /></>} />
+          <Route path="/dashboard/bartenders/create" element={<><BartenderCreate/></>} />
+          <Route path="/dashboard/bartenders/:id" element={<><BartenderEdit/></>} />
+          <Route path="/dashboard/products/create" element={<><ProductCreate/></>} />
+          <Route path="/dashboard/products/:id" element={<><ProductEdit/></>} />
         </Routes>
       </div>
     </Provider>
