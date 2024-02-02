@@ -55,7 +55,7 @@ function rootReducer(state = initialState, action) {
         ...state,
         message: action.payload.message?action.payload.message:state.message,
         installments_number: action.payload.details?[0].installments_number:state.installments_number,
-        response_code: action.payload.details?[0].response_code:state.response_code,
+        response_code: action.payload.details?action.payload.details[0].response_code:state.response_code,
         card_detail: action.payload.card_detail?action.payload.card_detail?.card_number:state.card_detail ,
         transaction_date: action.payload.transaction_date?action.payload.transaction_date:state.transaction_date,
         payment_type_code: action.payload.details?[0].payment_type_code:state.payment_type_code,

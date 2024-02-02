@@ -21,7 +21,7 @@ export default function Commit() {
 
   useEffect(() => {
     dispatch(commit(params));
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
