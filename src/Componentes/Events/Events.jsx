@@ -3,7 +3,7 @@ import './Events.css';
 import { Link } from 'react-router-dom';
 import { events } from "./events"
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllTickets } from '../../redux/actions';
+import { getAllEvents } from '../../redux/actions';
 
 
 export default function Events() {
@@ -11,7 +11,7 @@ export default function Events() {
   const [searchTerm, setSearchTerm] = useState('');
   const [sortBy, setSortBy] = useState('');
   const dispatch = useDispatch()
-  const evento = useSelector((state) => state.tickets)
+  const evento = useSelector((state) => state.events)
   console.log("evento", evento);
 
   const filteredEvents = events.filter(event =>
@@ -31,7 +31,7 @@ export default function Events() {
   console.log(filteredEvents)
 
   useEffect(() => {
-   dispatch(getAllTickets())
+   dispatch(getAllEvents())
   }, [])
   
   

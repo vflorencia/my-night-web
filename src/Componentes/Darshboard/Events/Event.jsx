@@ -1,54 +1,79 @@
-// Dashboard.js
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import EventForm from './EventForm'
-import EventDetails from './EventDetails'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { deleteEvents, getAllEvents } from '../../../redux/actions';
 
-const Event = () => {
-  const [events, setEvents] = useState([]);
+export default function Events() {
+
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    localStorage.getItem('isAuthenticated') === 'true'
+  );
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const events = useSelector((state)=> state.events)
+  console.log(events);
 
   useEffect(() => {
-    // Obtener la lista de Events al cargar el componente
-    axios.get('/tickets')
-      .then(response => {
-        setEvents(response.data);
-      })
-      .catch(error => {
-        console.error('Error fetching Events:', error);
-      });
+    const checkAuthentication = () => {
+      const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
+      setIsAuthenticated(isAuthenticated);
+    };
+    checkAuthentication();
+    dispatch(getAllEvents())
   }, []);
 
-  const handleEventCreated = (newEvent) => {
-    setEvents([...events, newEvent]);
-  };
-
-  const handleEventUpdated = (updatedEvent, deletedEventId = null) => {
-    if (deletedEventId) {
-      setEvents(events.filter(event => event.id !== deletedEventId));
-    } else {
-      const updatedEvents = events.map(event => {
-        if (event.id === updatedEvent.id) {
-          return updatedEvent;
-        }
-        return event;
-      });
-      setEvents(updatedEvents);
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate('/loginadmin');
     }
-  };
+  }, [isAuthenticated, navigate]);
 
-  return (
-    <div>
-      <EventForm onEventCreated={handleEventCreated} />
-      <h2>Lista de Events</h2>
-      {events.map(event => (
-        <EventDetails
-          key={event.id}
-          event={event}
-          onEventUpdated={handleEventUpdated}
-        />
-      ))}
+  const handleDeleteEvent = (eventId) =>  {
+    dispatch(deleteEvents(eventId));
+     navigate("/dashboard/events")
+   };
+
+   return (
+    <div className='cont-dash'>
+      {isAuthenticated ? (
+        <div className='content-dash'>
+          <h1 className='heading-dash'>Eventos</h1>
+          <button className='btn-create-dash' onClick={()=> navigate("/dashboard/events/create")}>Agregar Nuevo Evento</button>
+
+          <table className={`table`}>
+            <thead>
+              <tr className="table-head">
+                <th scope="col">Nombre</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Imagen</th>
+                <th scope="col">Categorías</th>
+                <th scope="col">Borrar</th>
+                <th scope="col">Editar</th>
+              </tr>
+            </thead>
+            <tbody>
+              {events.map((e) => {
+                return (
+                  <tr className="table-body">
+                    <td>{e.name}</td>
+                    <td>{e.description}</td>
+                    <td>{e.price}</td>
+                    <td className="table-img">{e.image}</td>
+                    <td>{e.categories}</td>
+                    <td className="table-delete">
+                      <button onClick={() => handleDeleteEvent(e.id)}>Borrar</button>
+                    </td>
+                    <td className="table-update">
+                        <button onClick={() => navigate(`/dashboard/events/${e.id}`)}>Editar</button>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      ) : null}
     </div>
   );
-};
-
-export default Event;
+}

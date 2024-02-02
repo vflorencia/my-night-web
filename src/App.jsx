@@ -24,13 +24,17 @@ import Dashboard from './Componentes/Darshboard/Dashboard.jsx';
 import LoginAdmin from './Componentes/Darshboard/Login/LoginAdmin.jsx';
 import SideBar from './Componentes/Darshboard/SideBar/Sidebar.jsx';
 import Bartenders from './Componentes/Darshboard/Bartenders/Bartenders.jsx'
-import Products from './Componentes/Darshboard/Products/Products.jsx'
+import Products from './Componentes/Darshboard/Products/Products.jsx';
+import Eventos from './Componentes/Darshboard/Events/Event.jsx'
 import ProductsSales from './Componentes/Darshboard/Sales/ProductsSales.jsx'
 import TicketsSales from './Componentes/Darshboard/Sales/TicketsSales.jsx'
 import BartenderCreate from './Componentes/Darshboard/Bartenders/BartenderCreate.jsx';
 import BartenderEdit from './Componentes/Darshboard/Bartenders/BartenderEdit.jsx';
 import ProductEdit from './Componentes/Darshboard/Products/ProductEdit.jsx';
 import ProductCreate from './Componentes/Darshboard/Products/ProductCreate.jsx';
+import EventEdit from './Componentes/Darshboard/Events/EventEdit.jsx';
+import EventCreate from './Componentes/Darshboard/Events/EventCreate.jsx';
+import Canceled from './Componentes/Transbank/Status/Canceled.jsx';
 
 
 function App() {
@@ -52,6 +56,7 @@ function App() {
           <Route  path="/redirect" element={<RedirectPage/>} />
           <Route  path="/success" element={<Success/>} />
           <Route  path="/failed" element={<Failed/>} />
+          <Route  path="/canceled" element={<Canceled/>} />
           <Route  path="/success-mobile" element={<SuccessMob/>} />
           <Route  path="/commit" element={<Commit/>} />
           <Route  path="/commit-mobile" element={<CommitMobile/>} />
@@ -62,12 +67,15 @@ function App() {
           <Route path="/dashboard" element={<><SideBar/><Dashboard /></>} />
           <Route path="/dashboard/bartenders" element={<><SideBar/><Bartenders/></>} />
           <Route path="/dashboard/products" element={<><SideBar/><Products /></>} />
+          <Route path="/dashboard/events" element={<><SideBar/><Eventos /></>} />
           <Route path="/dashboard/product-sales" element={<><SideBar/><ProductsSales /></>} />
           <Route path="/dashboard/ticket-sales" element={<><SideBar/><TicketsSales /></>} />
           <Route path="/dashboard/bartenders/create" element={<><BartenderCreate/></>} />
           <Route path="/dashboard/bartenders/:id" element={<><BartenderEdit/></>} />
           <Route path="/dashboard/products/create" element={<><ProductCreate/></>} />
           <Route path="/dashboard/products/:id" element={<><ProductEdit/></>} />
+          <Route path="/dashboard/events/create" element={<><EventCreate/></>} />
+          <Route path="/dashboard/events/:id" element={<><EventEdit/></>} />
         </Routes>
       </div>
     </Provider>

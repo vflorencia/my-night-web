@@ -48,7 +48,7 @@ export default function Products() {
                 <th scope="col">Precio</th>
                 <th scope="col">Imagen</th>
                 <th scope="col">Categorías</th>
-                <th scope="col">Borrar</th>
+                {/* <th scope="col">Borrar</th> */}
                 <th scope="col">Editar</th>
               </tr>
             </thead>
@@ -61,9 +61,9 @@ export default function Products() {
                     <td>{e.price}</td>
                     <td className="table-img">{e.image}</td>
                     <td>{e.categories}</td>
-                    <td className="table-delete">
+                    {/* <td className="table-delete">
                       <button onClick={() => handleDeleteProduct(e.id)}>Borrar</button>
-                    </td>
+                    </td> */}
                     <td className="table-update">
                         <button onClick={() => navigate(`/dashboard/products/${e.id}`)}>Editar</button>
                     </td>

@@ -22,7 +22,7 @@ const ProductEdit = () => {
 
   const handleUpdate = (formData) => {
     dispatch(updateProduct(id, formData));
-    // navigate("/dashboard/products");
+    navigate("/dashboard/products");
   };
 
   return (

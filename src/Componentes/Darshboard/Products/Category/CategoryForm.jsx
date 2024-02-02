@@ -1,30 +1,39 @@
 // CategoryForm.js
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { createCategory, getAllCategories } from '../../../../redux/actions';
 
 const CategoryForm = () => {
-  const [categoryName, setCategoryName] = useState('');
+  const dispatch = useDispatch();
+  const categories = useSelector((state) => state.categories); // Asegúrate de ajustar esto según la estructura real de tu estado
 
-  const handleCreateCategory = async () => {
-    try {
-      const response = await axios.post('/categories', { name: categoryName });
-      console.log(response.data);
-      // Puedes actualizar el estado o realizar otras acciones después de crear la categoría
-    } catch (error) {
-      console.error('Error creating category:', error.response?.data || error.message);
-    }
+  const [newCategory, setNewCategory] = useState('');
+
+  const handleCreateCategory = () => {
+    dispatch(createCategory({ name: newCategory }));
+    setNewCategory('');
   };
+
+  useEffect(() => {
+   dispatch(getAllCategories())
+  }, [dispatch]);
 
   return (
     <div>
-      <h2>Create Category</h2>
+      <h2>Categorías</h2>
+      <ul>
+        {categories?.map((category) => (
+          <li key={category.id}>{category.name}</li>
+        ))}
+      </ul>
       <input
         type="text"
-        placeholder="Category Name"
-        value={categoryName}
-        onChange={(e) => setCategoryName(e.target.value)}
+        placeholder="Nueva categoría"
+        value={newCategory}
+        onChange={(e) => setNewCategory(e.target.value)}
       />
-      <button onClick={handleCreateCategory}>Create Category</button>
+      <button onClick={handleCreateCategory}>Crear Categoría</button>
     </div>
   );
 };

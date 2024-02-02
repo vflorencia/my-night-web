@@ -30,6 +30,11 @@ export default function SideBar() {
             </a>
           </li>
           <li>
+            <a href="/dashboard/events">
+              <span>Eventos</span>
+            </a>
+          </li>
+          <li>
             <a href="/dashboard/product-sales">
               <span>Ventas de Productos</span>
             </a>

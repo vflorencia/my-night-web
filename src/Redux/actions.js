@@ -5,13 +5,12 @@ export const BUY_PRODUCT = "BUY_PRODUCT";
 export const COMMIT = "COMMIT";
 export const STATUS = "STATUS";
 export const REFUND = "REFUND";
-export const SET_TICKETS = "SET_TICKETS";
-export const SET_TICKETS_BY_ID = "SET_TICKETS_BY_ID";
 export const SET_BARTENDERS = "SET_BARTENDERS";
 export const SET_BARTENDER_BY_ID = "SET_BARTENDER_BY_ID";
 export const SET_PRODUCTS = "SET_PRODUCTS";
-
-
+export const SET_CATEGORIES = "SET_CATEGORIES";
+export const SET_EVENTS = "SET_EVENTS";
+export const SET_ORDERS = "SET_ORDERS";
 
 export function registroUsuario(payload) {
   return async function (dispatch) {
@@ -58,74 +57,6 @@ export function loginUsuario(payload) {
   };
 }
 
-// ticketsBartendercción para crear un ticket
-export const createTicket = (ticketData) => {
-  return async (dispatch) => {
-    try {
-      const response = await axios.post('/tickets/create', ticketData);
-      console.log(response.data); // Maneja la respuesta si es necesario
-      // Puedes despachar otras acciones de Redux si es necesario
-    } catch (error) {
-      console.error('Error creating ticket:', error); // Maneja el error
-    }
-  };
-};
-
-// Acción para obtener todos los tickets
-export const getAllTickets = () => {
-  return async (dispatch) => {
-    try {
-      const response = await axios.get('/tickets');
-      return dispatch({
-        type: SET_TICKETS,
-        payload: response.data,
-      });
-    } catch (error) {
-      console.error('Error getting all tickets:', error); // Maneja el error
-    }
-  };
-};
-
-// Acción para obtener un ticket por ID
-export const getTicketById = (ticketId) => {
-  return async (dispatch) => {
-    try {
-      const response = await axios.get(`/tickets/${ticketId}`);
-      return dispatch({
-        type: SET_TICKETS_BY_ID,
-        payload: response.data,
-      });
-    } catch (error) {
-      console.error(`Error getting ticket ${ticketId}:`, error); // Maneja el error
-    }
-  };
-};
-
-// Acción para actualizar un ticket por ID
-export const updateTicket = (ticketId, ticketData) => {
-  return async (dispatch) => {
-    try {
-      const response = await axios.put(`/tickets/${ticketId}`, ticketData);
-      console.log(response.data);
-    } catch (error) {
-      console.error(`Error updating ticket ${ticketId}:`, error); // Maneja el error
-    }
-  };
-};
-
-// Acción para eliminar un ticket por ID
-export const deleteTicket = (ticketId) => {
-  return async (dispatch) => {
-    try {
-      const response = await axios.delete(`/tickets/${ticketId}`);
-      console.log(response.data); 
-    } catch (error) {
-      console.error(`Error deleting ticket ${ticketId}:`, error); // Maneja el error
-    }
-  };
-};
-
-
 
 // Transbank
 
@@ -144,6 +75,7 @@ export function buyProducts(payload) {
 export function commit(payload) {
   return async function (dispatch) {
     var result = await axios.post( `${remot + "commit"} ` , payload);
+    console.log(result.data.message);
     return dispatch({
       type: COMMIT,
       payload: result.data,
@@ -341,7 +273,7 @@ export const deleteProducts = (productId) => {
         backdrop: 'rgba(0,0,000,0.4)',
       });
     } catch (error) {
-      console.error(`Error deleting product ${bartenderId}:`, error); 
+      console.error(`Error deleting product ${productId}:`, error); 
       Swal.fire({
         title: "Ocurrió un Error",
         icon: 'error',
@@ -355,9 +287,144 @@ export const deleteProducts = (productId) => {
 };
 
 
-    
-  
-  
+export const createCategory = (newCategory) => {
+  return async (dispatch) => {
+  try {
+    const response = await axios.post('/categories', newCategory);
+    console.log(response.data);
+    Swal.fire({
+      title: "Nueva Categoría Creada!",
+      icon: 'succes',
+      confirmButtonText: 'OK',
+      background: '#242424',
+      color: 'white',
+      backdrop: 'rgba(0,0,000,0.4)',
+    });
+  } catch (error) {
+    console.error('Error creating category:', error.response?.data || error.message);
+    Swal.fire({
+      title: error.response.data.message,
+      icon: 'error',
+      confirmButtonText: 'OK',
+      background: '#242424',
+      color: 'white',
+      backdrop: 'rgba(0,0,000,0.4)',
+    });
+  }
+};
+}
 
+export const getAllCategories = () => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.get('/categories');
+      console.log(response.data);
+      return dispatch({
+        type: SET_CATEGORIES,
+        payload: response.data.categories,
+      });
+    } catch (error) {
+      console.error('Error getting all categories:', error); 
+    }
+  };
+};
 
+// Events
 
+export const createEvent = (eventData) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.post('/events/create', eventData);
+      console.log(response.data); 
+      Swal.fire({
+        title: "Evento Creado!",
+        icon: 'succes',
+        confirmButtonText: 'OK',
+        background: '#242424',
+        color: 'white',
+        backdrop: 'rgba(0,0,000,0.4)',
+      });
+
+    } catch (error) {
+      console.error('Error creating event:', error); 
+      Swal.fire({
+        title: error.response.data.message,
+        icon: 'error',
+        confirmButtonText: 'OK',
+        background: '#242424',
+        color: 'white',
+        backdrop: 'rgba(0,0,000,0.4)',
+      });
+    }
+  };
+};
+
+export const getAllEvents = () => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.get('/events');
+      console.log(response.data);
+      return dispatch({
+        type: SET_EVENTS,
+        payload: response.data,
+      });
+    } catch (error) {
+      console.error('Error getting all events:', error); 
+    }
+  };
+};
+
+export const updateEvent = (eventId, eventData) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.put(`/events/${eventId}`, eventData);
+      console.log(response.data);
+    } catch (error) {
+      console.error(`Error updating event ${eventId}:`, error); 
+    }
+  };
+};
+
+export const deleteEvents = (eventId) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.delete(`/events/${eventId}`);
+      console.log(response.data); 
+      Swal.fire({
+        title: "Evento Eliminado!",
+        icon: 'succes',
+        confirmButtonText: 'OK',
+        background: '#242424',
+        color: 'white',
+        backdrop: 'rgba(0,0,000,0.4)',
+      });
+    } catch (error) {
+      console.error(`Error deleting event ${eventId}:`, error); 
+      Swal.fire({
+        title: "Ocurrió un Error",
+        icon: 'error',
+        confirmButtonText: 'OK',
+        background: '#242424',
+        color: 'white',
+        backdrop: 'rgba(0,0,000,0.4)',
+      });
+    }
+  };
+};
+
+// SALES
+
+// Products
+export const getAllOrders = () => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.get('/order');
+      return dispatch({
+        type: SET_ORDERS,
+        payload: response.data,
+      });
+    } catch (error) {
+      console.error('Error getting all events:', error); 
+    }
+  };
+};
